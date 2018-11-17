@@ -36,38 +36,10 @@
                         @Html.ActionLink("Home", "Index", "Home")
                     </li>
 
-
-                    <li id="portfolio" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Donors <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li id="1columnportfolio">
-                                @Html.ActionLink("A+ Donors", "OneColumn", "Portfolio")
-                            </li>
-                            <li id="2columnportfolio">
-                                @Html.ActionLink("A- Donors", "TwoColumn", "Portfolio")
-                            </li>
-                            <li id="3columnportfolio">
-                                @Html.ActionLink("B+ Donors", "ThreeColumn", "Portfolio")
-                            </li>
-                            <li id="4columnportfolio">
-                                @Html.ActionLink("B- Donors", "FourColumn", "Portfolio")
-                            </li>
-                            <li id="5columnportfolio">
-                                @Html.ActionLink("AB+ Donors", "FiveColumn", "Portfolio")
-                            </li>
-                            <li id="6columnportfolio">
-                                @Html.ActionLink("AB- Donors", "SixColumn", "Portfolio")
-                            </li>
-                            <li id="7columnportfolio">
-                                @Html.ActionLink("O+ Donors", "SevenColumn", "Portfolio")
-                            </li>
-                            <li id="8columnportfolio">
-                                @Html.ActionLink("O- Donors", "EightColumn", "Portfolio")
-                            </li>
-
-                            
-                        </ul>
+                    <li id="portfolio">
+                        @Html.ActionLink("Donors", "Donors", "Portfolio")
                     </li>
+
                     <li id="contact">
                         @Html.ActionLink("Post Request", "Index", "Contact")
                     </li>
