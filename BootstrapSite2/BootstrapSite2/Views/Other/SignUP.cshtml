@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "SignUP";
+}
+<style>
+    body {
+        background-size: 1400px;
+        background-image: url(../Images/bg1.jpg);
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                REGISTER!!
+                <small>Get Started</small>
+            </h1>
+
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4">
+            <h4 style="font-family:Rockwell; font-size:20px"> Name </h4> &nbsp; <input id="Text1" type="text" size="30"/>
+            <h4 style="font-family:Rockwell; font-size:20px">Gender</h4>
+            <select  name="Select" title="Select"  style="font-family:Rockwell; font-size:20px">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select> 
+            <h4 style="font-family:Rockwell; font-size:20px">Date Of Birth</h4> &nbsp; <input id="Text1" type="date" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px">Address</h4> &nbsp; <input id="Text1" type="text" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px"> Password </h4> &nbsp; <input id="Text1" type="password" size="30" />
+        </div>
+        <div class="col-md-3">
+            <h4 style="font-family:Rockwell; font-size:20px"> Email </h4> &nbsp; <input id="Text1" type="email" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px"> Blood Group </h4> &nbsp; <input id="Text1" type="text" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px"> Contact </h4> &nbsp; <input id="Text1" type="number" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px">City</h4> &nbsp; <input id="Text1" type="text" size="30" />
+            <h4 style="font-family:Rockwell; font-size:20px">Confirm Password</h4> &nbsp; <input id="Text1" type="text" size="30" />
+        </div>
+    </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-md-5">
+                    <hr/>
+                    
+                </div>
+                <div class="col-md-6">
+                    <hr />
+                    <a href='@Url.Action("Index", "Home")' class="btn btn-primary" style="Size">Sign Up</a>
+                    <br/>
+                    <br/>
+                    @Html.ActionLink("Already Have an account", "LoginForm")
+                </div>
+            </div>
+
+
+
+        </div>

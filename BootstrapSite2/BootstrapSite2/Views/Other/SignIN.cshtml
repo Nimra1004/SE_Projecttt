@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "SignIN";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--<meta name="viewport" content="width=device-width" />-->
+    <title>LoginForm</title>
+</head>
+<body>
+    <style>
+        body {
+            background-size:1400px;
+            background-image:url(../Images/bg2.png);
+        }
+    </style>
+    <center>
+        <h2>UserAccount</h2>
+        <br />
+        <br />
+        <!--<img src="../Images/TXT.jpg" style="background-image:url(../Images/TXT.jpg)" />-->
+        <div class="row ">
+
+            <div class="col-md-12">
+                <h4> User Name </h4> &nbsp; <input id="Text1" type="text" size="30" />
+                <br/>
+                <br/>
+                <h4> Password </h4> &nbsp; <input id="Text1" type="text" size="30" />
+                
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <a href='@Url.Action("Index", "Home")' class="btn btn-primary">Sign In</a>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("Forgot Password", "Index")
+        </div>
+        <br/>
+    </center>
+</body>
+</html>
