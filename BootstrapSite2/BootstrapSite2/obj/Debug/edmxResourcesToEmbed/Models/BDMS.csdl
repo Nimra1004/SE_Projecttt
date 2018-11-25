@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DonorsDataDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="DonationsID" />
+    </Key>
+    <Property Name="DonationsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Donatdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Place" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_Donation_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Donor" Relationship="Self.FK__Donation__FK_Don__1920BF5C" FromRole="Donation" ToRole="Donor" />
+  </EntityType>
+  <EntityType Name="Donor">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="D_NoDonations" Type="Int32" />
+    <Property Name="D_candonate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="FK_donor_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__FK_Don__1920BF5C" FromRole="Donor" ToRole="Donation" />
+    <NavigationProperty Name="RegisteredUser" Relationship="Self.FK__Donor__FK_donor___164452B1" FromRole="Donor" ToRole="RegisteredUser" />
+  </EntityType>
+  <EntityType Name="RegisteredUser">
+    <Key>
+      <PropertyRef Name="R_ID" />
+    </Key>
+    <Property Name="R_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="R_Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Gender" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_BloodGroup" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Contact" Type="Int32" Nullable="false" />
+    <Property Name="R_Dateofbirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="R_City" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_AddedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="R_Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Donors" Relationship="Self.FK__Donor__FK_donor___164452B1" FromRole="RegisteredUser" ToRole="Donor" />
+  </EntityType>
+  <Association Name="FK__Donation__FK_Don__1920BF5C">
+    <End Role="Donor" Type="Self.Donor" Multiplicity="1" />
+    <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donor">
+        <PropertyRef Name="D_ID" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="FK_Donation_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Donor__FK_donor___164452B1">
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
+    <End Role="Donor" Type="Self.Donor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegisteredUser">
+        <PropertyRef Name="R_ID" />
+      </Principal>
+      <Dependent Role="Donor">
+        <PropertyRef Name="FK_donor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DonorsDataDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Donations" EntityType="Self.Donation" />
+    <EntitySet Name="Donors" EntityType="Self.Donor" />
+    <EntitySet Name="RegisteredUsers" EntityType="Self.RegisteredUser" />
+    <AssociationSet Name="FK__Donation__FK_Don__1920BF5C" Association="Self.FK__Donation__FK_Don__1920BF5C">
+      <End Role="Donor" EntitySet="Donors" />
+      <End Role="Donation" EntitySet="Donations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Donor__FK_donor___164452B1" Association="Self.FK__Donor__FK_donor___164452B1">
+      <End Role="RegisteredUser" EntitySet="RegisteredUsers" />
+      <End Role="Donor" EntitySet="Donors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

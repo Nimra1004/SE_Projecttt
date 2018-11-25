@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="DonationsID" />
+    </Key>
+    <Property Name="DonationsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Donatdate" Type="datetime" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Donor">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="D_Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_Gender" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_BloodGroup" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_Contact" Type="int" Nullable="false" />
+    <Property Name="D_Dateofbirth" Type="datetime" Nullable="false" />
+    <Property Name="D_City" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_Address" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="D_NoDonations" Type="int" />
+    <Property Name="D_candonate" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="RegisteredUser">
+    <Key>
+      <PropertyRef Name="R_ID" />
+    </Key>
+    <Property Name="R_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="R_Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_Gender" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_BloodGroup" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_Contact" Type="int" Nullable="false" />
+    <Property Name="R_Dateofbirth" Type="datetime" Nullable="false" />
+    <Property Name="R_City" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_Address" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="R_AddedOn" Type="datetime" Nullable="false" />
+    <Property Name="R_Password" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Donation__Email__182C9B23' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Donation__Email__182C9B23" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Donor__D_Email__15502E78' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Donor__D_Email__15502E78" />-->
+  <EntityContainer Name="TestDbModelStoreContainer">
+    <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donor" EntityType="Self.Donor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegisteredUser" EntityType="Self.RegisteredUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

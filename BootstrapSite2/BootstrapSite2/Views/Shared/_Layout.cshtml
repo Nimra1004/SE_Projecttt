@@ -50,11 +50,11 @@
 
                     <li id="other">
                     <li id="SignIN">
-                        @Html.ActionLink("Sign IN", "SignIn", "Other")
+                        @Html.ActionLink("Sign in", "SignIn", "Other")
                     </li>
                     <li id="other">
                     <li id="SignUP">
-                        @Html.ActionLink("Sign UP", "SignUP", "Other")
+                        @Html.ActionLink("Sign up", "Register", "RegisteredUser")
                     </li>
 
                 </ul>
@@ -95,5 +95,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="@Url.Content("/js/bootstrap.js")"></script>
     <script src="@Url.Content("/js/modern-business.js")"></script>
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
 </body>
 </html>
