@@ -1,5 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<style>
+    body {
+        background-size: 1400px;
+        background-image: url(../Images/bg1.jpg);
+    }
+</style>
 <head>
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +21,7 @@
     <![endif]-->
 </head>
 <body>
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -98,5 +105,8 @@
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

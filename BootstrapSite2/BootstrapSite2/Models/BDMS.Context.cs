@@ -27,6 +27,7 @@ namespace BootstrapSite2.Models
     
         public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<Donor> Donors { get; set; }
+        public virtual DbSet<GoogleMap> GoogleMaps { get; set; }
         public virtual DbSet<RegisteredUser> RegisteredUsers { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     <Property Name="Donatdate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Place" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FK_Donation_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Donor" Relationship="Self.FK__Donation__FK_Don__1920BF5C" FromRole="Donation" ToRole="Donor" />
+    <NavigationProperty Name="Donor" Relationship="Self.FK__Donation__FK_Don__1DE57479" FromRole="Donation" ToRole="Donor" />
   </EntityType>
   <EntityType Name="Donor">
     <Key>
@@ -18,8 +18,18 @@
     <Property Name="D_NoDonations" Type="Int32" />
     <Property Name="D_candonate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="FK_donor_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__FK_Don__1920BF5C" FromRole="Donor" ToRole="Donation" />
-    <NavigationProperty Name="RegisteredUser" Relationship="Self.FK__Donor__FK_donor___164452B1" FromRole="Donor" ToRole="RegisteredUser" />
+    <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__FK_Don__1DE57479" FromRole="Donor" ToRole="Donation" />
+    <NavigationProperty Name="RegisteredUser" Relationship="Self.FK__Donor__FK_donor___1B0907CE" FromRole="Donor" ToRole="RegisteredUser" />
+  </EntityType>
+  <EntityType Name="GoogleMap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RegisteredUser">
     <Key>
@@ -30,15 +40,15 @@
     <Property Name="R_Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_Gender" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_BloodGroup" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="R_Contact" Type="Int32" Nullable="false" />
+    <Property Name="R_Contact" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_Dateofbirth" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="R_City" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_AddedOn" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="R_Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Donors" Relationship="Self.FK__Donor__FK_donor___164452B1" FromRole="RegisteredUser" ToRole="Donor" />
+    <NavigationProperty Name="Donors" Relationship="Self.FK__Donor__FK_donor___1B0907CE" FromRole="RegisteredUser" ToRole="Donor" />
   </EntityType>
-  <Association Name="FK__Donation__FK_Don__1920BF5C">
+  <Association Name="FK__Donation__FK_Don__1DE57479">
     <End Role="Donor" Type="Self.Donor" Multiplicity="1" />
     <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
     <ReferentialConstraint>
@@ -50,7 +60,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Donor__FK_donor___164452B1">
+  <Association Name="FK__Donor__FK_donor___1B0907CE">
     <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
     <End Role="Donor" Type="Self.Donor" Multiplicity="*" />
     <ReferentialConstraint>
@@ -65,12 +75,13 @@
   <EntityContainer Name="DonorsDataDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Donations" EntityType="Self.Donation" />
     <EntitySet Name="Donors" EntityType="Self.Donor" />
+    <EntitySet Name="GoogleMaps" EntityType="Self.GoogleMap" />
     <EntitySet Name="RegisteredUsers" EntityType="Self.RegisteredUser" />
-    <AssociationSet Name="FK__Donation__FK_Don__1920BF5C" Association="Self.FK__Donation__FK_Don__1920BF5C">
+    <AssociationSet Name="FK__Donation__FK_Don__1DE57479" Association="Self.FK__Donation__FK_Don__1DE57479">
       <End Role="Donor" EntitySet="Donors" />
       <End Role="Donation" EntitySet="Donations" />
     </AssociationSet>
-    <AssociationSet Name="FK__Donor__FK_donor___164452B1" Association="Self.FK__Donor__FK_donor___164452B1">
+    <AssociationSet Name="FK__Donor__FK_donor___1B0907CE" Association="Self.FK__Donor__FK_donor___1B0907CE">
       <End Role="RegisteredUser" EntitySet="RegisteredUsers" />
       <End Role="Donor" EntitySet="Donors" />
     </AssociationSet>

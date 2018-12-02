@@ -11,9 +11,7 @@ namespace BootstrapSite2.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
-
+    
     public partial class RegisteredUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,76 +19,20 @@ namespace BootstrapSite2.Models
         {
             this.Donors = new HashSet<Donor>();
         }
+    
         public int R_ID { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Email")]
         public string R_Email { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Nmae")]
         public string R_Name { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Gender")]
         public string R_Gender { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "BloodGroup")]
         public string R_BloodGroup { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Contact")]
-        public int R_Contact { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [DataType(DataType.Date)]
-        [Display(Name = "DateOfBirth")]
+        public string R_Contact { get; set; }
         public System.DateTime R_Dateofbirth { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "City")]
         public string R_City { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Address")]
         public string R_Address { get; set; }
-
         public System.DateTime R_AddedOn { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Password")]
         public string R_Password { get; set; }
-
-        [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "ConfirmPassword")]
-        public string R_ConfirmPassword { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donor> Donors { get; set; }
-        public static IEnumerable<SelectListItem> GetGenderList()
-        {
-            IList<SelectListItem> items = new List<SelectListItem>
-            {
-                new  SelectListItem{Text = "Male", Value = "Male" },
-                new  SelectListItem{Text = "Female", Value = "Female" },
-            };
-            return items;
-        }
-        public static IEnumerable<SelectListItem> BloodGroupList()
-        {
-            IList<SelectListItem> items = new List<SelectListItem>
-            {
-                new  SelectListItem{Text = "A+", Value = "A+" },
-                new  SelectListItem{Text = "A-", Value = "A-" },
-                new  SelectListItem{Text = "B+", Value = "B+" },
-                new  SelectListItem{Text = "B-", Value = "B-" },
-                new  SelectListItem{Text = "AB+", Value = "AB+" },
-                new  SelectListItem{Text = "AB-", Value = "AB-" },
-                new  SelectListItem{Text = "O+", Value = "O+" },
-                new  SelectListItem{Text = "O-", Value = "O-" },
-            };
-            return items;
-        }
     }
 }

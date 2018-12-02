@@ -1,4 +1,4 @@
-﻿@model BootstrapSite2.Models.RegisteredUser
+﻿@model BootstrapSite2.ViewModels.RegisteredUserM
 
 <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 
@@ -21,120 +21,121 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header" style="color:#FFE033">
-                REGISTER!
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    @Html.ActionLink("Home", "Index", "Home")
-                </li>
-                <li class="active" style="color:#FFFFFF">Sign up</li>
-            </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" style="color:#FFE033">
+                    REGISTER!
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="active" style="color:#FFFFFF">Sign up</li>
+                </ol>
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Email, "Enter Email:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Email, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Email)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Name, "Enter Name:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Name, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Gender, "Select Gender:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.R_Gender, BootstrapSite2.ViewModels.RegisteredUserM.GetGenderList(), " - - - - -Select One- - - - - ", htmlAttributes: new {size ="1", style= "width:250px, height:100px,color:#000000" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_BloodGroup, "Select BloodGroup:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.R_BloodGroup, BootstrapSite2.ViewModels.RegisteredUserM.BloodGroupList(), " - - - - -Select One- - - - - ", htmlAttributes: new { size = "1", style = "width:250px, height:100px,color:#000000" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Contact, "Enter Contact#:", htmlAttributes: new { type = "number", @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Contact, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Contact)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Dateofbirth, "Select DOB:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Dateofbirth, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.R_Dateofbirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_City, "Enter City:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_City, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_City)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Address, "Enter Address:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Address, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Address)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_Password, "Enter Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Password, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Password)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.R_ConfirmPassword, "Re-Enter Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_ConfirmPassword, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_ConfirmPassword)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                    <hr />
+                    @Html.ActionLink("Already Have an account", "SignIN", "Other", null, new { onclick = "return confirm('Are you sure?')" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="label-success"> @ViewBag.SuccessMessage</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="label-danger"> @ViewBag.DuplicateMessage</label>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Email, "Enter Email:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Email)
-                @Html.ValidationMessageFor(model => model.R_Email)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Name, "Enter Name:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Name)
-                @Html.ValidationMessageFor(model => model.R_Name)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Gender, "Select Gender:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(x => x.R_Gender, BootstrapSite2.Models.RegisteredUser.GetGenderList())
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_BloodGroup, "Select BloodGroup:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(x => x.R_BloodGroup, BootstrapSite2.Models.RegisteredUser.BloodGroupList())
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Contact, "Enter Contact#:", htmlAttributes: new { type = "number", @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Contact)
-                @Html.ValidationMessageFor(model => model.R_Contact)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Dateofbirth, "Select DOB:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Dateofbirth, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth", @readonly = "true" } })
-                @Html.ValidationMessageFor(model => model.R_Dateofbirth, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_City, "Enter City:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_City)
-                @Html.ValidationMessageFor(model => model.R_City)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Address, "Enter Address:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Address)
-                @Html.ValidationMessageFor(model => model.R_Address)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_Password, "Enter Password:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_Password)
-                @Html.ValidationMessageFor(model => model.R_Password)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.R_ConfirmPassword, "Re-Enter Password:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.R_ConfirmPassword)
-                @Html.ValidationMessageFor(model => model.R_ConfirmPassword)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-                <hr />
-                @Html.ActionLink("Already Have an account", "LoginForm")
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <label class="label-success"> @ViewBag.SuccessMessage</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <label class="label-danger"> @ViewBag.DuplicateMessage</label>
-            </div>
-        </div>
-    </div>
-</div>
 }
 

@@ -21,6 +21,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GoogleMaps">
+      <EntityTypeMapping TypeName="DonorsDataDbModel.GoogleMap">
+        <MappingFragment StoreEntitySet="GoogleMap">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RegisteredUsers">
       <EntityTypeMapping TypeName="DonorsDataDbModel.RegisteredUser">
         <MappingFragment StoreEntitySet="RegisteredUser">
